@@ -12,11 +12,7 @@ async function doGet() {
     xhr.onload = () => {
         debugger;
 
-        if(xhr.status == 200) {
-            alert(xhr.responseText);
-        }else {
-            alert("API 통신중 에러가 발생했습니다.");
-        }
+        return xhr;
     }
 }
 

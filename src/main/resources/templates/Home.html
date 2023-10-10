@@ -9,7 +9,19 @@
     <h1>여긴 메인화면!!</h1>
     <div>
         <label>테스트 버튼 : </label>
-        <button onclick="doPost()">테스트</button>
+        <button onclick="test()">테스트</button>
     </div>
+    <p id="area"></p>
 </body>
+<script>
+    async function test() {
+        const text = await doGet();
+
+        debugger;
+        const area = document.getElementById("area");
+        console.log("text :: " + text);
+
+        area.innerText = text;
+    }
+</script>
 </html>

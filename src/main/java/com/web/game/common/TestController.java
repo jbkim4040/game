@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @GetMapping("/get/test")
-    public String testGetAPI() {
-        return "이건 테스트 데이터 (get)";
+    public TestDTO testGetAPI() {
+        TestDTO dto =
+                TestDTO.builder()
+                        .name("김정빈")
+                        .phone("01053871887")
+                        .gender("남자")
+                        .build();
+
+        return dto;
     }
 
     @PostMapping("/post/test")
