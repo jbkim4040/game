@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Game Main</title>
-    <script type="text/javascript" src="Common.js"></script>
+    <script type="text/javascript" src="./js/Common.js"></script>
 </head>
 <body>
     <h1>여긴 메인화면!!</h1>
@@ -14,14 +14,18 @@
     <p id="area"></p>
 </body>
 <script>
-    async function test() {
-        const text = await doGet();
+    function test() {
+        const res = doGet('http://localhost:1001/get/test');
 
-        debugger;
-        const area = document.getElementById("area");
-        console.log("text :: " + text);
-
-        area.innerText = text;
+        if(res.readyState == 4) {
+            if(res.status == 200) {
+                debugger;
+                console.log("text :: " + res.responseText);
+                document.getElementById("area").innerText = res.responseText;
+            }else {
+                alert("API 통신중 오류 발생");
+            }
+        }
     }
 </script>
 </html>

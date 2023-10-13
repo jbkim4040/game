@@ -3,17 +3,13 @@ function test() {
 }
 
 
-async function doGet() {
-    var xhr = new XMLHttpRequest();
+function doGet(url) {
+    const xhr = new XMLHttpRequest();
 
-    xhr.open('GET', 'http://localhost:1001/get/test', true);
+    xhr.open('GET', url, true);
     xhr.send();
 
-    xhr.onload = () => {
-        debugger;
-
-        return xhr;
-    }
+    return xhr;
 }
 
 
